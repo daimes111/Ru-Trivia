@@ -5,8 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ru-Trivia</title>
+    <script defer src="js/script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <!-- Game Instruction Modal  -->
+    <div id ="intro-modal" class="modal-box" style="display: block;">
+        <div class="modal-content">
+            <h1 class="intro-title">Welcome to Drag Race <span>Ru-Trivia!</span></h1>
+        </div>
+        <p class="intro-content">
+            *need to update this as Welcome*
+        </p>
+        <p class="intro-luck">
+            Good luck. And don't F$%k It Up
+        </p>
+        
+        <input type="text" class="nameInput" id="playerName" placeholder="Your Name">
+        <div class="enter-button">
+            <input type="submit" onclick="location.href='../difficulty.html'" class="button" value="Let's go!">
+        </div>
+
+    </div> 
+    <!-- difficulty pick modal -->
+    <div id ="difficult-modal" class="modal-box" style="display: block;">
+        <div class="difficult-content">
+            <h1 class="difficult-title">Hiiiiiiiiiiiiieeee!!!</h1>
+        </div>
+        <p class="difficult-content">
+            *need to update this as what difficult to pick*
+        </p>
+        <!-- <p class="intro-luck">
+            Good luck. And don't F$%k It Up
+        </p> -->
+        
+
+        <div class="difficulty-buttons">
+            <input type="submit" onclick="location.href='../easy.html'" class="button" value="Where are all the cars???">
+            <input type="submit" onclick="location.href='../medium.html'" class="button" value="I know I have definitely heard of RuPaul">
+            <input type="submit" onclick="location.href='../hard.html'" class="button" value="All tea No shade">
+        </div>
+
+    </div> 
 </body>
 </html>
