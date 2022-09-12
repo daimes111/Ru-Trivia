@@ -5,11 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="js/script.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Ru-Trivia_Medium</title>
 </head>
 <body>
-    <!-- Medium Game Modal  -->
+   <div id="game">
+    <header id="game-title" class="header">Header</header>
+    <nav class="progress nav">
+        <h2 >Score: <span id="score-display">0</span></h2>
+    </nav>
+    <main id="game-questions" class="main">
+        <div class="question-container"></div>
+        <div class="answer-containter"></div>
+    </main>
+    <footer id="buttons footer">
+        <!-- <button class="prev-question-btn buttons">Prev Question</button> -->
+        <button class="submit-btn buttons">Submit</button>
+        <button class="next-btn buttons">Next Question</button>
+    </footer>
+   </div>
+
+</body>
+</html>
+
+
+<!-- first body attempt -->
+ <!-- Medium Game Modal 
     <div id ="medium-modal" class="modal-box" style="display: block;">
         <div class="modal-content">
             <h1 class="medium-title">medium title</h1>
@@ -21,7 +42,4 @@
         <div class="choices-containter">
             
         </div>
-        <button id="submit-btn">Submit</button>
-
-</body>
-</html>
+        <button id="submit-btn">Submit</button> -->
