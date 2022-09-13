@@ -3,16 +3,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* position: absolute; */
+    height: 100vh;
+    top: 100px;
+    margin: 0;
+    padding: 0;
 }
 
 #game {
+    /* top: 50%; */
     background-color: rgb(247, 220, 220);
     border: solid pink;
     display: grid;
     height: 80vh;
-    width: 80vh;
-    margin: 0;
-    padding: 0;
+    width: 70%; 
+    /* margin: 0;
+    padding: 0; */
+    
     
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -57,6 +64,13 @@ body {
     border: solid black;
 }
 
+.main.question-container {
+    position: relative;
+}
+.main.choices-container {
+    position: relative;
+}
+
 .question-container {
     padding: 0;
     margin: 0;
@@ -73,11 +87,81 @@ body {
     border: solid black;
 }
 
-.answer-container {
+.choices-container {
     
-    text-align: center;
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+   
+    justify-content: center;
     align-items: center;;
     border: solid black;
+
 }
 
+.choice-container {
+    background-color:#333;
+    padding:30px;
+    border-radius:10px;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    font-family:sans-serif;
+    /* position: relative;
+    padding: 1.5rem; 
+    
+    border: solid black;
+    width: 25%;
+    height: 20%;
+    display: flex;
+    justify-content: center ;
+    align-items: center; */
+}
 
+/* .choice-container p {
+    display: inline-block; 
+    font-size: 30px;
+} */
+
+.choice-prefix {
+    padding: 1rem;
+    /* background-color: white; */
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.correct {
+    background-color: rgb(52, 209, 52);
+}
+.incorrect {
+    background-color: rgb(197, 58, 58);
+}
+
+.progress {
+    display: flex;
+    flex-direction: column;
+}
+
+#progressBar {
+    width: 20rem;
+    height: 4rem; 
+    border: 0.3rem solid black;
+    
+}
+
+#progressBarFull {
+    height: 3.4rem;
+    background-color: black;
+    width: 0%;
+}

@@ -5,10 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="js/script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Ru-Trivia_Easy</title>
 </head>
 <body>
-    
+   <div id="game">
+    <header id="game-title" class="header">Header</header>
+    <nav class="progress-container nav">
+        <div class="progress">
+            <h2 id="progressText"></h2>
+            <div id="progressBar">
+                <div id="progressBarFull"></div>
+            </div>
+        </div>
+        <div class="score">
+            <h2 >Score: <span id="score-display">0</span></h2>
+        </div>  
+    </nav>
+    <main id="game-questions" class="main">
+        <div class="question-container">
+            <h2 class="question"></h2>
+        </div>
+        <div class="choices-container">
+            <div class="choice-container">
+                <p class="choice-prefix">A)</p>
+                <p class="choice-text" data-value ="A">Choice A</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">B)</p>
+                <p class="choice-text" data-value ="B">Choice B</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">C)</p>
+                <p class="choice-text" data-value ="C">Choice C</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">D)</p>
+                <p class="choice-text" data-value ="D">Choice D</p>
+            </div>
+        </div>
+    </main>
+    <footer id="buttons footer">
+        <!-- <button class="prev-question-btn buttons">Prev Question</button> -->
+        <button class="submit-btn buttons">Submit</button>
+        <button class="next-btn buttons">Next Question</button>
+    </footer>
+   </div>
+
 </body>
 </html>
+
+
+<!-- first body attempt -->
+ <!-- Medium Game Modal 
+    <div id ="medium-modal" class="modal-box" style="display: block;">
+        <div class="modal-content">
+            <h1 class="medium-title">medium title</h1>
+        </div>
+        <h3 class="medium-question">
+            question here
+        </h3>
+        
+        <div class="choices-containter">
+            
+        </div>
+        <button id="submit-btn">Submit</button> -->
