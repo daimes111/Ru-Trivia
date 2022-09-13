@@ -12,14 +12,13 @@ function generateQuestion() {
     questionContainer.appendChild(question)
     question.innerHTML= ruQuestions[0].question
     
-    ruQuestions[0].answers.forEach(element => {
+    // ruQuestions[0].answers.forEach(element => {
         
-            const answer = document.createElement("p")
-            answerContainer.append(answer)
-            answer.innerHTML= ruQuestions[0].answers
+            const answer = document.createElement('label')
+            answer.classList.add('answer')
+            answerContainer.appendChild(answer)
+            answer.innerHTML= ruQuestions[0].answers.A
     
-        
-    });
     
 }
 
