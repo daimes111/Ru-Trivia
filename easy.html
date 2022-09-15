@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="js/script.js"></script>
+    <!-- <script defer src="js/script.js"></script> -->
+    <script defer src="js/game.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="game.css">
     <title>Ru-Trivia_Easy</title>
 </head>
 <body>
+    <!-- <div class="video-background">
+        <div class="video-foreground">
+          <iframe src="https://www.youtube.com/embed/jicVVQfcYkw" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div> -->
+
    <div id="game">
     <header id="game-title" class="header">Header</header>
     <nav class="progress-container nav">
         <div class="progress">
+            <!-- <p></p> -->
             <h2 id="progressText"></h2>
             <div id="progressBar">
                 <div id="progressBarFull"></div>
@@ -45,10 +54,10 @@
             </div>
         </div>
     </main>
-    <footer id="buttons footer">
+    <footer id="footer">
         <!-- <button class="prev-question-btn buttons">Prev Question</button> -->
-        <button class="submit-btn buttons">Submit</button>
-        <button class="next-btn buttons">Next Question</button>
+        <button class="submit-btn footerBtn">Submit</button>
+        <button class="next-btn footerBtn">Next Question</button>
     </footer>
    </div>
 

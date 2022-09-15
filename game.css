@@ -1,0 +1,162 @@
+#game {
+    /* top: 50%; */
+    background-color: rgb(245, 231, 231);
+    border: solid pink 3px;
+    border-radius:20px;
+    display: grid;
+    height: 80vh;
+    width: 70%; 
+    /* margin: 0;
+    padding: 0; */
+    
+    
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1.5fr 2fr 2fr 2fr .5fr;
+
+    grid-template-areas: 
+    "header header header"
+    "nav main main"
+    "nav main main"
+    "nav main main"
+    "footer footer footer"
+}
+
+#game>.header {
+    grid-area: header;
+    height:85%;
+}
+
+#game>.nav {
+    grid-area: nav;
+}
+
+#game>.main {
+    grid-area: main;
+}
+
+#game>.footer {
+    grid-area: footer;
+    
+}
+
+.header {
+    /* border: solid black; */
+}
+
+#game-questions {
+    /* border: solid black; */
+
+}
+.footer {
+    border: solid black;
+}
+.nav {
+    /* border: solid black; */
+}
+
+#game-questions.question-container {
+    position: relative;
+}
+#game-questions.choices-container {
+    position: relative;
+}
+
+.question-container {
+    padding: 0;
+    margin: 0;
+    /* border: solid black; */
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: 25%;
+    font-size: 100%;
+}
+
+.question-container h2 {
+    height: auto;
+    /* font-size: 100%; */
+    text-align: center;
+    align-items: center;;
+    /* border: solid black; */
+}
+
+
+.choices-container {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    /* max-height: 100%; */
+    max-width: 100%;
+    height: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+   
+    justify-content: center;
+    align-items: center;;
+    /* border: solid black; */
+
+}
+
+.choice-container {
+    background-color:#333;
+    border: solid white;
+    /* padding:30px; */
+    border-radius:10px;
+    color:#fff;
+    display:flex;
+    /* height:max-content; */
+    align-items:center;
+    justify-content:center;
+    /* font-size:30px; */
+    font-family:sans-serif;
+    width: 49%;
+    height: 47%
+}
+
+.choice-text {
+    display: inline-block; 
+    font-size: 30px;
+}
+
+.choice-prefix {
+    padding: 4px;
+    opacity: 20%;
+    /* background-color: white; */
+}
+/* .choice-container.choice-text {
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.correct {
+    background-color: rgb(52, 209, 52);
+}
+.incorrect {
+    background-color: rgb(197, 58, 58);
+}
+
+.progress {
+    display: flex;
+    flex-direction: column;
+}
+
+#progressBar {
+    width: 10rem;
+    height: 3rem; 
+    border: 0.3rem solid black;
+    
+}
+
+#progressBarFull {
+    height: 2.9rem;
+    background-color: black;
+    width: 0%;
+}
