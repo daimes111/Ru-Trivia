@@ -3,7 +3,7 @@ const game = document.getElementById("game")
 const scoreDisplay = document.getElementById("score-display")
 const question = document.querySelector(".question") 
 const choicesContainer = document.querySelector('.choices-container')
-const differentChoices = document.querySelectorAll('.choice-container')
+const differentChoices = document.querySelectorAll('.choice-text')
 const progressText = document.getElementById('progressText')
 const progressBarFull = document.getElementById('progressBarFull')
 const submitBtn = document.querySelector(".submit-Btn")
@@ -27,88 +27,75 @@ const MAX_QUESTIONS = 9
 
 const ruQuestions = [
     {
-        question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-        choices: [
-            "BeBe Zahara Benet",
+        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        choices : [
+            "BeBe Zahara Benet6",
             "Nina Flowers",
             "Shangela",
             "Raja"
         ],
-        correctAnswer: "BeBe Zahara Benet"
-    },
+        correctAnswer: "BeBe Zahara Benet6"
+    }, 
     {
-        question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        choices: [
-            "True",
-            "False"
-        ],
-        correctAnswer: "True"
-    },
-    {
-        question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-        choices: [
-            "BeBe Zahara Benet",
+        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        choices : [
+            "BeBe Zahara Benet6",
             "Nina Flowers",
             "Shangela",
             "Raja"
         ],
-        correctAnswer: "BeBe Zahara Benet"
+        correctAnswer: "BeBe Zahara Benet6"
     },
     {
-        question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-        choices: [
-            "BeBe Zahara Benet",
+        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        choices : [
+            "BeBe Zahara Benet6",
             "Nina Flowers",
             "Shangela",
             "Raja"
         ],
-        correctAnswer: "BeBe Zahara Benet"
+        correctAnswer: "BeBe Zahara Benet6"
     },
     {
-        question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        choices: [
-            "True",
-            "False"
-        ],
-        correctAnswer: "True"
-    },
-    {
-        question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-        choices: [
-            "BeBe Zahara Benet",
+        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        choices : [
+            "BeBe Zahara Benet6",
             "Nina Flowers",
             "Shangela",
             "Raja"
         ],
-        correctAnswer: "BeBe Zahara Benet"
+        correctAnswer: "BeBe Zahara Benet6"
     },
     {
-        question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        choices: [
-            "True",
-            "False"
-        ], 
-        correctAnswer: "True"
-    },
-    {
-        question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        choices: [
-            "True",
-            "False"
-        ], 
-        correctAnswer: "True"
-    },
-    {
-        question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-        choices: [
-            "BeBe Zahara Benet",
+        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        choices : [
+            "BeBe Zahara Benet6",
             "Nina Flowers",
             "Shangela",
             "Raja"
         ],
-        correctAnswer: "BeBe Zahara Benet"
+        correctAnswer: "BeBe Zahara Benet6"
+    },
+    {
+        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        choices : [
+            "BeBe Zahara Benet6",
+            "Nina Flowers",
+            "Shangela",
+            "Raja"
+        ],
+        correctAnswer: "BeBe Zahara Benet6"
+    },
+    {
+        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        choices : [
+            "BeBe Zahara Benet6",
+            "Nina Flowers",
+            "Shangela",
+            "Raja"
+        ],
+        correctAnswer: "BeBe Zahara Benet6"
     }
-
 ]
 
 startGame = (evt) => {
@@ -137,7 +124,7 @@ generateQuestion = (evt) => {
     // progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
     
     const questionIndex =  Math.floor(Math.random() * availableQuestions.length) 
-    let currentQuestion = availableQuestions[questionIndex]
+    const currentQuestion = availableQuestions[questionIndex]
     sessionStorage.setItem('currentQuestion', currentQuestion)
     console.log(currentQuestion) 
 
@@ -178,11 +165,11 @@ generateQuestion = (evt) => {
 }
 
 // let currentQuestion = sessionStorage.getItem('currentQuestion')
+console.log(differentChoices)
 
-
-// for (let i = 0; i < currentQuestion.choices.length; i++){
-differentChoices.forEach(choice => {
-    choice.addEventListener('click', evt => {
+for (let i = 0; i < differentChoices.length; i++){
+// differentChoices.forEach(choice => {
+    differentChoices[i].addEventListener('click', evt => {
         if (!acceptingAnswers) return
 
         acceptingAnswers= false
@@ -220,7 +207,7 @@ differentChoices.forEach(choice => {
         }, 500)
          
     })
-})
+}
 increaseScore = (num) => {
     score += CORRECT_BONUS
     scoreDisplay.innerHTML = score;
