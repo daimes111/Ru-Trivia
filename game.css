@@ -51,7 +51,11 @@
     border: solid black;
 }
 .nav {
-    /* border: solid black; */
+    border: solid black;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #game-questions.question-container {
@@ -143,20 +147,16 @@
     background-color: rgb(197, 58, 58);
 }
 
-.progress {
-    display: flex;
-    flex-direction: column;
-}
 
 #progressBar {
-    width: 10rem;
-    height: 3rem; 
+    width: 3rem;
+    height: 10rem; 
     border: 0.3rem solid black;
-    
+    padding: 1px;
 }
 
 #progressBarFull {
-    height: 2.9rem;
+    height: 0%;
     background-color: black;
-    width: 0%;
+    width: 2.9;
 }

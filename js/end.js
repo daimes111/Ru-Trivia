@@ -9,7 +9,7 @@ finalScore.innerHTML = mostRecentScore
 const MAX_HIGH_SCORE = 5;
 
 username.addEventListener('keyup', (evt) => {
-    console.log(username.value)
+    
     saveScoreBtn.disabled = !username.value
 })
 

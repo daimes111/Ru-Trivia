@@ -5,4 +5,6 @@ const difficultModal = document.getElementById('difficult-modal')
 startBtn.addEventListener('click', (evt) => {
     introModal.style.display= 'none'
     difficultModal.style.display= 'block'
+    difficultModal.style.width= '25%'
+    difficultModal.style.height= '50%'
 })

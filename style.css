@@ -10,7 +10,7 @@ body {
   justify-content: center;
   /* position: absolute; */
   height: 100vh;
-  top: 100px;
+  /* top: 100px; */
   margin: 0;
   padding: 0;
 }
@@ -41,7 +41,7 @@ body {
 .btn {
   font-size: 1.0rem;
   padding: 1rem 0;
-  /* width: 20rem; */
+  width: 20rem;
   text-align: center;
   border: 0.1rem solid #56a5eb;
   margin-bottom: 1rem;
@@ -103,11 +103,11 @@ input::placeholder {
   z-index: 1;
   border-radius: 15px;
   height: 57%;
-  width: 38%;
+  width: 30%;
   text-align: center;
   top: 20%; 
   box-shadow: 0 0.8rem 2.4rem 0 rgba(21, 23, 24, 0.5);
-
+  position: relative;
 }
 
 .modal-box p {
