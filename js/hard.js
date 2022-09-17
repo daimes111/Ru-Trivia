@@ -2,7 +2,8 @@
 const game = document.getElementById("game")
 const scoreDisplay = document.getElementById("score-display")
 const question = document.querySelector(".question") 
-const choices = Array.from(document.getElementsByClassName('choice-text')) 
+const choicesContainer = document.querySelector('.choices-container')
+const differentChoices = document.querySelectorAll('.choice-container')
 const progressText = document.getElementById('progressText')
 const progressBarFull = document.getElementById('progressBarFull')
 const submitBtn = document.querySelector(".submit-Btn")
@@ -11,7 +12,7 @@ const endContainer = document.querySelector(".end-container")
 const timerCount = document.querySelector('.timer-count')
 const timerLine = document.querySelector('.timer-line')
 
-let currentQuestion =  {}
+// let currentQuestion =  {}
 let acceptingAnswers = false
 let score = 0
 let questionCounter = 0
@@ -22,7 +23,6 @@ let resetCounter = 10
 let resetWidth = 0
 const CORRECT_BONUS = 10
 const MAX_QUESTIONS = 9 
-
 
 
 const ruQuestions = [
@@ -38,7 +38,10 @@ const ruQuestions = [
     },
     {
         question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        feedback: "original judging panel", 
+        choices: [
+            "True",
+            "False"
+        ],
         correctAnswer: "True"
     },
     {
@@ -63,7 +66,10 @@ const ruQuestions = [
     },
     {
         question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        feedback: "original judging panel", 
+        choices: [
+            "True",
+            "False"
+        ],
         correctAnswer: "True"
     },
     {
@@ -78,12 +84,18 @@ const ruQuestions = [
     },
     {
         question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        feedback: "original judging panel", 
+        choices: [
+            "True",
+            "False"
+        ], 
         correctAnswer: "True"
     },
     {
         question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        feedback: "original judging panel", 
+        choices: [
+            "True",
+            "False"
+        ], 
         correctAnswer: "True"
     },
     {
@@ -125,15 +137,25 @@ generateQuestion = (evt) => {
     // progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
     
     const questionIndex =  Math.floor(Math.random() * availableQuestions.length) 
-    currentQuestion = availableQuestions[questionIndex]
-    question.innerHTML= currentQuestion.question
+    let currentQuestion = availableQuestions[questionIndex]
+    sessionStorage.setItem('currentQuestion', currentQuestion)
+    console.log(currentQuestion) 
 
-   
-    choices.forEach (choice => {
-        const value = choice.dataset['value']
-        choice.innerHTML = currentQuestion['choice'+ value]
-        
-    })
+    question.innerHTML= currentQuestion.question
+    // console.log(currentQuestion.choices)
+    for (let i =0; i < differentChoices.length; i++) {
+        differentChoices[i].innerHTML= currentQuestion.choices[i]
+    }
+    // for (let i = 0; i <currentQuestion.choices.length; i++){
+    // // currentQuestion.choices.forEach (choice => {
+    //     const div = document.createElement('div')
+    //     div.classList.add('choice-container')
+    //     choicesContainer.append(div)
+    //     const p = document.createElement('p')
+    //     p.classList.add('choice-text')
+    //     p.textContent = currentQuestion.choices[i]
+    //     div.append(p)
+    // }
     
     availableQuestions.splice(questionIndex, 1)
     
@@ -155,16 +177,19 @@ generateQuestion = (evt) => {
     // }
 }
 
+// let currentQuestion = sessionStorage.getItem('currentQuestion')
 
-choices.forEach(choice => {
+
+// for (let i = 0; i < currentQuestion.choices.length; i++){
+differentChoices.forEach(choice => {
     choice.addEventListener('click', evt => {
         if (!acceptingAnswers) return
 
         acceptingAnswers= false
         const selectedChoice = evt.target
-        const selectedAnswer = selectedChoice.dataset['value']
+        const selectedAnswer = selectedChoice.correctAnswer
  
-        const classToApply = selectedAnswer == currentQuestion.correctAnswer ? 'correct' : 'incorrect'
+        const classToApply = selectedAnswer == selectedChoice.correctAnswer ? 'correct' : 'incorrect'
         
         if (classToApply === 'correct') {
              increaseScore()
