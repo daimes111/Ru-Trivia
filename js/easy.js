@@ -1,123 +1,90 @@
 //VARIABLES
-const game = document.getElementById("game")
-const scoreDisplay = document.getElementById("score-display")
-const question = document.querySelector(".question") 
-const choices = Array.from(document.getElementsByClassName('choice-text')) 
+const game = document.getElementById('game')
+const scoreDisplay = document.getElementById('score-display')
+const question = document.querySelector('.question') 
+// const choices = Array.from(document.getElementsByClassName('choice-text')) 
+const choicesContainer = document.querySelector('.choices-container')
+const choiceText = document.querySelector('.choice-text')
 const progressText = document.getElementById('progressText')
 const progressBarFull = document.getElementById('progressBarFull')
-const submitBtn = document.querySelector(".submit-Btn")
-const nextBtn = document.querySelector(".next-Btn")
+const endContainer = document.querySelector('.end-container')
 let currentQuestion = {}
 let acceptingAnswers = false
 let score = 0
 let questionCounter = 0
 let availableQuestions = []
-const CORRECT_BONUS = 10
+let incorrectAnswer = 0
+const CORRECT_BONUS = 5
 const MAX_QUESTIONS = 9 
 
 
 const ruQuestions = [
     {
-        question: "Name the original judging panel from Season 1",
-        choiceA: "Ru Paul, Santino Rice, Michelle Visage",
-        choiceB: "Ru Paul, Marle Ginsberg, Santino Rice, Michelle Visage",
-        choiceC: "Ru Paul, Marle Ginsberg, Santano Rice",
-        choiceD: "Ru Paul, Michelle Viasge, Tyra Banks", 
-        correctAnswer: "C"
+        question: "Ru Paul, Marle Ginsberg, Santano Rice",
+        feedback: "original judging panel", 
+        correctAnswer: "True"
     },
     {
-        question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
+        question: "Ru Paul, Marle Ginsberg, Santano Rice",
+        feedback: "original judging panel", 
+        correctAnswer: "True"
+    },
+    {
+        question: "Ru Paul, Marle Ginsberg, Santano Rice",
+        feedback: "original judging panel", 
+        correctAnswer: "True"
+    },
+    {
+        question: "Ru Paul, Marle Ginsberg, Santano Rice",
+        feedback: "original judging panel", 
+        correctAnswer: "True"
+    },
+    {
+        question: "Ru Paul, Marle Ginsberg, Santano Rice",
+        feedback: "original judging panel", 
+        correctAnswer: "True"
+    },
+    {
+        question: "Nina Flowers",
+        feedback: "BeBe Zahara Benet was the winner of the first season",
+        correctAnswer: "False"
     }, 
     {
-        question: "2Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet2",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
+        question: "Nina Flowers",
+        feedback: "BeBe Zahara Benet was the winner of the first season",
+        correctAnswer: "False"
     }, 
     {
-        question: "3Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet3",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
+        question: "Nina Flowers",
+        feedback: "BeBe Zahara Benet was the winner of the first season",
+        correctAnswer: "False"
     }, 
     {
-        question: "4Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet4",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
+        question: "Nina Flowers",
+        feedback: "BeBe Zahara Benet was the winner of the first season",
+        correctAnswer: "False"
     }, 
     {
-        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet5",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
+        question: "Nina Flowers",
+        feedback: "BeBe Zahara Benet was the winner of the first season",
+        correctAnswer: "False"
     }, 
     {
-        question: "6Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet6",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
+        question: "Nina Flowers",
+        feedback: "BeBe Zahara Benet was the winner of the first season",
+        correctAnswer: "False"
     }, 
     {
-        question: "7Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet7",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
-    }, 
-    {
-        question: "8Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet8",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
-    }, 
-    {
-        question: "9Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Bene9t",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
-    }, 
-    {
-        question: "10Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet10",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
-    }, 
-    {
-        question: "11Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet11",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
-    }
+        question: "Nina Flowers",
+        feedback: "BeBe Zahara Benet was the winner of the first season",
+        correctAnswer: "False"
+    } 
 
 ]
 
 startGame = (evt) => {
     questionCounter = 0
+    incorrectAnswer = 0
     score = 0
     availableQuestions= [...ruQuestions]
     generateQuestion()
@@ -126,7 +93,8 @@ startGame = (evt) => {
 // generate question at random in the available questions array
 generateQuestion = (evt) => {
     
-    if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS){
+    questionCounter++
+    if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
 
         // got to the game over page
         localStorage.setItem('mostRecentScore', score)
@@ -134,20 +102,23 @@ generateQuestion = (evt) => {
         return window.location.assign('/end.html')
     }
 
-    questionCounter++
+    // Reset choice container
+
 
     // update progress bar
     progressText.innerHTML= `Question ${questionCounter} of ${MAX_QUESTIONS}`
-    progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
+    // progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
 
     const questionIndex =  Math.floor(Math.random() * availableQuestions.length) 
     currentQuestion = availableQuestions[questionIndex]
     question.innerHTML= currentQuestion.question
 
-    choices.forEach (choice => {
-        const value = choice.dataset['value']
-        choice.innerHTML = currentQuestion['choice'+ value]
-    })
+   
+    // choices.forEach (choice => {
+    //     const value = choice.dataset['value']
+    //     choice.innerHTML = currentQuestion['choice'+ value]
+        
+    // })
     
     availableQuestions.splice(questionIndex, 1)
 
@@ -170,29 +141,51 @@ generateQuestion = (evt) => {
 }
 
 
-choices.forEach(choice => {
-    choice.addEventListener('click', e => {
+// choices.forEach(choice => {
+    choicesContainer.addEventListener('click', evt => {
         if (!acceptingAnswers) return
 
         acceptingAnswers= false
-        const selectedChoice = e.target
+        const selectedChoice = evt.target
         const selectedAnswer = selectedChoice.dataset['value']
-
-        let classToApply = 'incorrect'
-        if (selectedAnswer == currentQuestion.correctAnswer) {
-             classToApply = 'correct'
+ 
+        const classToApply = selectedAnswer == currentQuestion.correctAnswer ? 'correct' : 'incorrect'
+        
+        if (classToApply === 'correct') {
              increaseScore()
-        } 
+             progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
+            selectedChoice.innerHTML= `
+            Correct! ${currentQuestion.feedback}
+            `
+        } else if (classToApply === 'incorrect') {
+            incorrectAnswer++
+            selectedChoice.innerHTML= `
+            Gurl! ! ${currentQuestion.feedback}
+            `
+            if (incorrectAnswer >= 3) {
+                return window.location.assign('/end.html')
+                endContainer.innerHTML= `
+                <h2>Go back to Party City, where you belong!</h2>
+                <h2>Chil' you need to go brush up on your herstory</h2>
+                `
+                
+            }
+        } else
 
-      
+        progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
         selectedChoice.parentElement.classList.add(classToApply)
+        
+
+        // incorrectAnswer++
+       
 
         setTimeout ( () => {
             selectedChoice.parentElement.classList.remove(classToApply)
+            selectedChoice.innerHTML= `${selectedAnswer}`
             generateQuestion()
-        }, 1000)
-        
-    })
+        }, 3000)
+         
+    // })
 })
 increaseScore = (num) => {
     score += CORRECT_BONUS

@@ -1,6 +1,6 @@
 body {
   /* background-image: url("https://i.pinimg.com/564x/0c/db/19/0cdb19b1a720314093274f47e921f111.jpg"); */
-  background: url("https://screenrant.com/wp-content/uploads/2018/10/Kim-Chi-enters-werk-room-RuPauls-Drag-Race.jpg") no-repeat center center fixed; 
+  background: url("https://pbs.twimg.com/media/EUYZE8qXsAMnDaH.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -8,11 +8,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* position: absolute; */
-  height: 100vh;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   /* top: 100px; */
   margin: 0;
   padding: 0;
+  border: solid black;
 }
 
 
@@ -41,19 +43,20 @@ body {
 .btn {
   font-size: 1.0rem;
   padding: 1rem 0;
-  width: 20rem;
+  /* width: 20rem; */
   text-align: center;
-  border: 0.1rem solid #56a5eb;
+  border: 0.1rem solid #81238d;
   margin-bottom: 1rem;
   text-decoration: none;
-  color: #56a5eb;
+  color: #b929cf;
   background-color: white;
+  opacity: .85;
   border-radius: 5px;
 }
 
 .btn:hover {
   cursor: pointer;
-  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(52, 9, 42, 0.5);
   transform: translateY(-0.1rem);
   transition: transform 150ms;
 }
@@ -64,50 +67,46 @@ body {
   transform: none;
 }
 
+/* Highscore page */
 #saveScoreBtn {
   width: 15rem;
 }
 
 
 .nameInput {
-  /* width: 20rem; */
-  /* height: 1.8rem; */
+  width: 20rem;
+  height: 1.8rem;
 }
 
-/* FORMS */
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-  
 input {
-  margin-bottom: 1rem;
-  width: 18rem;
-  padding: 0.8rem;
+  /* margin-bottom: 1rem; */
+  width: 17rem;
+  /* padding: 0.8rem; */
   font-size: 1.8rem;
-  /* height: 2rem; */
-  border: none;
+  height: 2.3rem; 
+  /* border: none; */
   box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
   
 }
   
 input::placeholder {
-  color: #aaa;
-}
+  color: #aaa; 
+ } 
 
+ /* main page */
 .modal-box {
   /* border: solid  */
-  background-color: white;
-  z-index: 1;
+  background-color: rgba(245, 231, 231, 0.9);
+  /* z-index: 1; */
   border-radius: 15px;
   height: 57%;
   width: 30%;
   text-align: center;
-  top: 20%; 
-  box-shadow: 0 0.8rem 2.4rem 0 rgba(21, 23, 24, 0.5);
+  /* top: 20%;  */
+  box-shadow: 0 0.8rem 2.4rem 0 rgba(53, 7, 44, 0.5);
+  
   position: relative;
+  border: solid black;
 }
 
 .modal-box p {
@@ -122,8 +121,12 @@ input::placeholder {
   /* position: relative; */
 }
 
+.modal-box .start-button #startBtn{
+  border: solid black;
+}
+
 .content {
-    /* padding: 5px; */
+  font-size: 30px;
 }
 
 #intro-modal {
@@ -134,13 +137,86 @@ input::placeholder {
 }
 
 .difficulty-buttons {
-    display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
 
-   
+/* end page */
+
+.end-container {
+  /* border: solid black; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
-    
-    text-align: center;
+  /* border: solid black; */
+  /* width: 100%; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
 }
+
+#end {
+  text-align: center;
+}
+#end.endBtn {
+  /* border: solid black; */
+  width: 7rem;
+
+}
+
+h2, h1, ul, span {
+  font-family: 'Ms Madi', cursive;
+  font-family: 'Permanent Marker', cursive;
+  color: #fff;
+  font-size: 46px;
+  text-shadow: 1px 1px 15px rgb(176, 101, 99);
+}
+
+.timer {
+  font-size: 30px;
+  display: flex;
+  font-family: 'Ms Madi', cursive;
+  font-family: 'Permanent Marker', cursive;
+}
+#game h2 {
+  color: black;
+  opacity: .8;
+  font-family: 'Ms Madi', cursive;
+  font-family: 'Permanent Marker', cursive;
+  overflow-wrap: break-word;
+  font-size: 49px;
+  margin: 1px;
+  text-shadow: 1px 1px 1px #080707;
+}
+
+.recent-score {
+  font-size: 66px;
+}
+
+#hsModal h1 {
+  color: rgb(23, 6, 6);
+  text-shadow: 1px 1px 1px #080707;
+
+}
+ul {
+  color: red;
+  text-shadow: 1px 1px 1px #080707;
+
+}
+
+.hsBtn {
+  color: black;
+  width: 100vw;
+}
+
+/* easy page */
+
+/* hard page
+timer */
 

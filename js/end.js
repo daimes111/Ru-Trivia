@@ -2,9 +2,11 @@ const username = document.getElementById('username')
 const saveScoreBtn = document.getElementById('saveScoreBtn')
 const finalScore = document.getElementById('finalScore')
 const mostRecentScore = localStorage.getItem('mostRecentScore')
-
 const highScores = JSON.parse(localStorage.getItem('highScores')) || []
-finalScore.innerHTML = mostRecentScore
+
+finalScore.innerHTML = `
+Great Job! Your score: <span class="recent-score">${mostRecentScore}</span>
+`
 
 const MAX_HIGH_SCORE = 5;
 
@@ -30,5 +32,5 @@ saveHighScore = evt => {
     highScores.splice(5)
 
     localStorage.setItem('highScores', JSON.stringify(highScores))
-    window.location.assign('/')
+    window.location.assign('/highscore.html')
 }

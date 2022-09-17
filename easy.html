@@ -5,9 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script defer src="js/script.js"></script> -->
-    <script defer src="js/game.js"></script>
+    <script defer src="js/easy.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="game.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Permanent+Marker&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@1&family=Permanent+Marker&family=Poppins:ital,wght@1,300&display=swap');
+    </style>
+        
+        
     <title>Ru-Trivia_Easy</title>
 </head>
 <body>
@@ -18,7 +25,7 @@
       </div> -->
 
    <div id="game">
-    <header id="game-title" class="header">Header</header>
+    <header id="game-title" class="header"><span class="title">Ru-Trivia's!</span> Drag Race</header>
     <nav class="progress-container nav">
         <div class="progress">
             <!-- <p></p> -->
@@ -35,30 +42,18 @@
         <div class="question-container">
             <h2 class="question"></h2>
         </div>
-        <div class="choices-container">
+        <div id="easy"class="choices-container">
             <div class="choice-container">
-                <p class="choice-prefix">A)</p>
-                <p class="choice-text" data-value ="A">Choice A</p>
+                <p class="choice-text" data-value ="True">True</p>
             </div>
             <div class="choice-container">
-                <p class="choice-prefix">B)</p>
-                <p class="choice-text" data-value ="B">Choice B</p>
+                <p class="choice-text" data-value ="False">False</p>
             </div>
-            <div class="choice-container">
-                <p class="choice-prefix">C)</p>
-                <p class="choice-text" data-value ="C">Choice C</p>
-            </div>
-            <div class="choice-container">
-                <p class="choice-prefix">D)</p>
-                <p class="choice-text" data-value ="D">Choice D</p>
-            </div>
+            <div id="questionResponse" class="hide"></div>
+            <button id="nextQuestion" class="hide"></button>
         </div>
     </main>
-    <footer id="footer">
-        <!-- <button class="prev-question-btn buttons">Prev Question</button> -->
-        <button class="submit-btn footerBtn">Submit</button>
-        <button class="next-btn footerBtn">Next Question</button>
-    </footer>
+   
    </div>
 
 </body>
