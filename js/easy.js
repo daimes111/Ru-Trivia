@@ -163,12 +163,7 @@ generateQuestion = (evt) => {
             Gurl! ! ${currentQuestion.feedback}
             `
             if (incorrectAnswer >= 3) {
-                return window.location.assign('/end.html')
-                endContainer.innerHTML= `
-                <h2>Go back to Party City, where you belong!</h2>
-                <h2>Chil' you need to go brush up on your herstory</h2>
-                `
-                
+                return window.location.assign('/loseEnd.html')
             }
         } else
 

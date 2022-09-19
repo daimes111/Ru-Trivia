@@ -12,7 +12,7 @@ const endContainer = document.querySelector(".end-container")
 const timerCount = document.querySelector('.timer-count')
 const timerLine = document.querySelector('.timer-line')
 
-// let currentQuestion =  {}
+let currentQuestion =  {}
 let acceptingAnswers = false
 let score = 0
 let questionCounter = 0
@@ -103,7 +103,7 @@ startGame = (evt) => {
     score = 0
     availableQuestions= [...ruQuestions]
     generateQuestion()
-    startTimer(resetCounter)
+    // startTimer(15)
     
 }
 
@@ -124,15 +124,17 @@ generateQuestion = (evt) => {
     // progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
     
     const questionIndex =  Math.floor(Math.random() * availableQuestions.length) 
-    const currentQuestion = availableQuestions[questionIndex]
-    sessionStorage.setItem('currentQuestion', currentQuestion)
-    console.log(currentQuestion) 
+    currentQuestion = availableQuestions[questionIndex]
+   
+    // console.log(currentQuestion) 
 
     question.innerHTML= currentQuestion.question
     // console.log(currentQuestion.choices)
     for (let i =0; i < differentChoices.length; i++) {
-        differentChoices[i].innerHTML= currentQuestion.choices[i]
+        differentChoices[i].textContent= currentQuestion.choices[i]
+        // console.log(differentChoices[i])
     }
+    // console.log(differentChoices)
     // for (let i = 0; i <currentQuestion.choices.length; i++){
     // // currentQuestion.choices.forEach (choice => {
     //     const div = document.createElement('div')
@@ -165,7 +167,7 @@ generateQuestion = (evt) => {
 }
 
 // let currentQuestion = sessionStorage.getItem('currentQuestion')
-console.log(differentChoices)
+// console.log(differentChoices)
 
 for (let i = 0; i < differentChoices.length; i++){
 // differentChoices.forEach(choice => {
@@ -174,9 +176,9 @@ for (let i = 0; i < differentChoices.length; i++){
 
         acceptingAnswers= false
         const selectedChoice = evt.target
-        const selectedAnswer = selectedChoice.correctAnswer
- 
-        const classToApply = selectedAnswer == selectedChoice.correctAnswer ? 'correct' : 'incorrect'
+        const selectedAnswer = selectedChoice.textContent
+        
+        const classToApply = selectedAnswer == currentQuestion.correctAnswer ? 'correct' : 'incorrect'
         
         if (classToApply === 'correct') {
              increaseScore()
@@ -184,12 +186,7 @@ for (let i = 0; i < differentChoices.length; i++){
         } else if (classToApply === 'incorrect') {
             incorrectAnswer++
             if (incorrectAnswer >= 3) {
-                return window.location.assign('/end.html')
-                endContainer.innerHTML= `
-                <h2>Go back to Party City, where you belong!</h2>
-                <h2>Chil' you need to go brush up on your herstory</h2>
-                `
-                
+                return window.location.assign('/loseEnd.html')
             }
         } else
 
@@ -198,8 +195,10 @@ for (let i = 0; i < differentChoices.length; i++){
 
         // incorrectAnswer++
        
+       
         clearInterval(counter)
         clearInterval(counterLine)
+       
         setTimeout ( () => {
             selectedChoice.parentElement.classList.remove(classToApply)
             
@@ -227,6 +226,16 @@ startTimer = (time) => {
         if(time < 0){
             clearInterval(counter)
             timerCount.textContent = "00"
+
+            setTimeout ( () => {
+                clearInterval(counter)
+                clearInterval(counterLine)
+                incorrectAnswer++
+                if (incorrectAnswer >= 3) {
+                    return window.location.assign('/loseEnd.html')
+                }
+                generateQuestion()
+            }, 500)
 
         }
      }
