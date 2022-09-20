@@ -1,17 +1,13 @@
 #game {
-    /* top: 50%; */
     background-color: rgba(245, 231, 231, 0.9);
     border: solid pink 3px;
     border-radius:20px;
     box-shadow: 0 2rem 3.4rem 0 rgba(68, 18, 63, 0.8);
     display: grid;
-    height: 80vh;
+    height: 80%;
     width: 65%; 
     position: relative;
-    /* margin: 0;
-    padding: 0; */
-    
-    
+  
     grid-template-columns: .5fr 1fr 1fr;
     grid-template-rows: .8fr 2fr 2fr 2fr;
 
@@ -21,21 +17,20 @@
     "nav main main"
     "nav main main"
 }
-
 #game>.header {
     grid-area: header;
     height:85%;
 }
-
 #game>.nav {
     grid-area: nav;
 }
-
 #game>.main {
     grid-area: main;
 }
-
-
+#game .timer-line{ 
+    border:  rgb(176, 101, 99);
+    width: 200px;
+}
 
 @media screen and (max-width: 768px) {
     #game {
@@ -47,120 +42,25 @@
     } */
 }
 
-.header {
-    /* border: solid black; */
-    text-align: center;
-    padding: 10px 0; 
-    font-size: 90px;
-    /* margin: auto; */
-    font-family: 'IM Fell English', serif;
-    font-family: 'Permanent Marker', cursive;
-    font-family: 'Poppins', sans-serif;
-
-}
-.title {
-    font-family: "Delius Swash Caps"; 
-    font-size: 115px; 
-    font-style: italic; 
-    font-variant: small-caps; 
-    font-weight: 700; 
-    line-height: 50.6px;
-    
-}
-
-#game-questions {
-    /* border: solid black; */
-
-}
-.footer {
-    border: solid black;
-}
-.nav {
-    /* border: solid black; */
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav .timer-line {
-    border: rgb(176, 101, 99);
-    /* position: absolute; */
-    /* bottom: 0px; */
-    /* left: 2%; */
-    width: 50%;
-    height: 8px;
-    background-color: rgb(176, 101, 99);
-  }
-
-#game .timer-line{ 
-    border:  rgb(176, 101, 99);
-    width: 200px;
-}
-
-#game-questions.question-container {
-    /* position: relative;  */
-}
-#game-questions.choices-container {
-    position: relative;
-}
-
-.question-container {
-    padding: 0;
-    margin: 0;
-    /* border: solid black; */
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-    height: 25%;
-    /* font-size: 100%; */
-}
-
-.question-container h2 {
-    height: auto;
-    /* font-size: 100%; */
-    text-align: center;
-    align-items: center;;
-    /* border: solid black; */
-}
-
-.question{
-    font-family: 'Ms Madi', cursive;
-    font-family: 'Permanent Marker', cursive;
-    overflow-wrap: break-word;
-    font-size: 49px;
-    margin: 1px;
-    /* border: solid black; */
-}
-
-
 .choices-container {
     position: relative;
     padding: 0;
     margin: 0;
-    /* max-height: 100%; */
     max-width: 100%;
     height: 75%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-   
     justify-content: center;
     align-items: center;;
-    /* border: solid black; */
-    
-
 }
 
 .choice-container {
     background-color:#333;
     opacity: 80% ;
-    /* border: solid rgba(245, 231, 231, 0.9);; */
-   
     border-radius:10px;
     color:#fff;
     display:flex;
-    /* height:max-content; */
     align-items:center;
     justify-content:center;
     font-family: 'IM Fell English', serif;
@@ -175,7 +75,6 @@
     display: flex; 
     justify-content: center;
     align-items: center;
-    /* border: solid black; */
     margin: 1em auto;
     min-width: 93%;
     min-height: 97%;;
@@ -183,16 +82,10 @@
     overflow-wrap: break-word;
     -webkit-text-size-adjust: auto;
 }
-
 .choice-prefix {
     padding: 4px;
     opacity: 20%;
-    /* background-color: white; */
 }
-/* .choice-container.choice-text {
-    display: flex;
-    flex-wrap: wrap;
-} */
 
 .choice-container:hover {
     cursor: pointer;
@@ -200,14 +93,23 @@
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
-
 .correct {
     background-color: rgb(52, 209, 52);
+}
+.footer {
+    border: solid black;
+}
+.header {
+    text-align: center;
+    padding: 10px 0; 
+    font-size: 90px;
+    font-family: 'IM Fell English', serif;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Poppins', sans-serif;
 }
 .incorrect {
     background-color: rgb(197, 58, 58);
 }
-
 .progress {
     display: flex;
     flex-direction: column;
@@ -230,8 +132,49 @@
     background-color: black;
     width: 2.9; 
 }
+.nav {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
 
-.hide {
-    display: none;
+.nav .timer-line {
+    border: rgb(176, 101, 99);
+    width: 50%;
+    height: 8px;
+    background-color: rgb(176, 101, 99);
+  }
+
+.question-container {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: 25%;
+}
+
+.question-container h2 {
+    height: auto;
+    text-align: center;
+    align-items: center;;
+}
+
+.question{
+    font-family: 'Ms Madi', cursive;
+    font-family: 'Permanent Marker', cursive;
+    overflow-wrap: break-word;
+    font-size: 49px;
+    margin: 1px;
+}
+.title {
+    font-family: "Delius Swash Caps"; 
+    font-size: 115px; 
+    height: 100%;
+    font-style: italic; 
+    font-variant: small-caps; 
+    font-weight: 700; 
+    line-height: 50.6px;
 }
 

@@ -2,7 +2,6 @@
 const game = document.getElementById('game')
 const scoreDisplay = document.getElementById('score-display')
 const question = document.querySelector('.question') 
-// const choices = Array.from(document.getElementsByClassName('choice-text')) 
 const choicesContainer = document.querySelector('.choices-container')
 const choiceText = document.querySelector('.choice-text')
 const progressText = document.getElementById('progressText')
@@ -20,63 +19,63 @@ const MAX_QUESTIONS = 9
 
 const ruQuestions = [
     {
-        question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        feedback: "original judging panel", 
+        question: "RuPaul's Drag Race is an International show",
+        feedback: "Drag Race IS an International show, premiering in the Philippines, Spain, the UK, and more ", 
         correctAnswer: "True"
     },
     {
-        question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        feedback: "original judging panel", 
+        question: `RuPaul walks down the runway to her song <a href="https://www.youtube.com/watch?v=4nTl4Rmf6AI">Supermodel</a>`,
+        feedback: "RuPaul walks down to her song Cover Girl", 
+        correctAnswer: "False"
+    },
+    {
+        question: "Shangela was the 1st queen to be eliminated and return on another season",
+        feedback: "Shangela was eliminated in season 2 and returned in season 3 and AllStars season 3", 
         correctAnswer: "True"
     },
     {
-        question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        feedback: "original judging panel", 
+        question: "RuPaul wears different color wigs, but you would mostly see her in a blonde wig.",
+        feedback: "RuPaul's premiered in her hit single, Supermodel (You Better Work), in 1992 with a blonde wig.", 
         correctAnswer: "True"
     },
     {
-        question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        feedback: "original judging panel", 
+        question: "Snatch Game is one of the favorite compeitions the queens get to participate in.",
+        feedback: "Snatch Game is an impersonation game and is in almost every season (international included).", 
         correctAnswer: "True"
     },
     {
-        question: "Ru Paul, Marle Ginsberg, Santano Rice",
-        feedback: "original judging panel", 
+        question: "Rol-aksa-tox refers to Alaska, Detox, and RuPaul",
+        feedback: "Rol-aska-tox refers to Alaska, Detox, and Roxxxy Andrews.",
+        correctAnswer: "False"
+    }, 
+    {
+        question: "Michelle Visage is a regular judge on RuPaul",
+        feedback: "Michelle has been on every US episode since season 3 and has premiered in some international episodes.",
         correctAnswer: "True"
-    },
+    }, 
     {
-        question: "Nina Flowers",
-        feedback: "BeBe Zahara Benet was the winner of the first season",
+        question: "Shangela is the queen who has competed the most.",
+        feedback: "Jujubee actually has competed the most with 4 seasons.",
         correctAnswer: "False"
     }, 
     {
-        question: "Nina Flowers",
-        feedback: "BeBe Zahara Benet was the winner of the first season",
+        question: "RuPaul ends every episode with 'How in the hell you going to love somebody else'?",
+        feedback: "RuPaul ends every episode with 'How in the hell you gonna love somebody else'",
         correctAnswer: "False"
     }, 
     {
-        question: "Nina Flowers",
-        feedback: "BeBe Zahara Benet was the winner of the first season",
+        question: "There are only 2 queens who have been disqualifed from RuPaul.",
+        feedback: "There are 4 queens including: Willam Belli, Gong Hyo, Sherry Pie, Norma Jean",
         correctAnswer: "False"
     }, 
     {
-        question: "Nina Flowers",
-        feedback: "BeBe Zahara Benet was the winner of the first season",
+        question: "Contestants only have to get themselves into drag",
+        feedback: "Some competitons require the queens to get others into drag including family, crew, fans, and more",
         correctAnswer: "False"
     }, 
     {
-        question: "Nina Flowers",
-        feedback: "BeBe Zahara Benet was the winner of the first season",
-        correctAnswer: "False"
-    }, 
-    {
-        question: "Nina Flowers",
-        feedback: "BeBe Zahara Benet was the winner of the first season",
-        correctAnswer: "False"
-    }, 
-    {
-        question: "Nina Flowers",
-        feedback: "BeBe Zahara Benet was the winner of the first season",
+        question: "Every episode in a season has the same judging panel",
+        feedback: "There is typically a guest judge including celebrities such as Regina King, Lady Gaga, Trina, and many more",
         correctAnswer: "False"
     } 
 
@@ -107,204 +106,52 @@ generateQuestion = (evt) => {
 
     // update progress bar
     progressText.innerHTML= `Question ${questionCounter} of ${MAX_QUESTIONS}`
-    // progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
 
     const questionIndex =  Math.floor(Math.random() * availableQuestions.length) 
     currentQuestion = availableQuestions[questionIndex]
     question.innerHTML= currentQuestion.question
-
-   
-    // choices.forEach (choice => {
-    //     const value = choice.dataset['value']
-    //     choice.innerHTML = currentQuestion['choice'+ value]
-        
-    // })
     
     availableQuestions.splice(questionIndex, 1)
 
     acceptingAnswers = true
-    
-    // attempt to turn choices into an array
-    // const choices = Object.keys(ruQuestions[0].choices)
-    // console.log(ruQuestions[0].choices)
-
-    // Attempt to create lables for choices
-    // ruQuestions[0].answers.forEach(element => {
-        
-            
-            // const choicesA = document.querySelector('A')
-            // choices.classList.add('choices')
-            // choicesContainer.appendChild(choices)
-            // choicesA.innerHTML= ruQuestions[0].choices.A
-    
-    // }
 }
 
+choicesContainer.addEventListener('click', evt => {
+    if (!acceptingAnswers) return
 
-// choices.forEach(choice => {
-    choicesContainer.addEventListener('click', evt => {
-        if (!acceptingAnswers) return
+    acceptingAnswers= false
+    const selectedChoice = evt.target
+    const selectedAnswer = selectedChoice.dataset['value']
+    const classToApply = selectedAnswer == currentQuestion.correctAnswer ? 'correct' : 'incorrect'
+    
+    if (classToApply === 'correct') {
+            increaseScore()
+            progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
+        selectedChoice.innerHTML= `
+        Correct! ${currentQuestion.feedback}
+        `
+    } else if (classToApply === 'incorrect') {
+        incorrectAnswer++
+        selectedChoice.innerHTML= `
+        Gurl! ! ${currentQuestion.feedback}
+        `
+        if (incorrectAnswer >= 3) {
+            return window.location.assign('/loseEnd.html')
+        }
+    } else
 
-        acceptingAnswers= false
-        const selectedChoice = evt.target
-        const selectedAnswer = selectedChoice.dataset['value']
- 
-        const classToApply = selectedAnswer == currentQuestion.correctAnswer ? 'correct' : 'incorrect'
-        
-        if (classToApply === 'correct') {
-             increaseScore()
-             progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
-            selectedChoice.innerHTML= `
-            Correct! ${currentQuestion.feedback}
-            `
-        } else if (classToApply === 'incorrect') {
-            incorrectAnswer++
-            selectedChoice.innerHTML= `
-            Gurl! ! ${currentQuestion.feedback}
-            `
-            if (incorrectAnswer >= 3) {
-                return window.location.assign('/loseEnd.html')
-            }
-        } else
-
-        progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
-        selectedChoice.parentElement.classList.add(classToApply)
-        
-
-        // incorrectAnswer++
-       
-
-        setTimeout ( () => {
-            selectedChoice.parentElement.classList.remove(classToApply)
-            selectedChoice.innerHTML= `${selectedAnswer}`
-            generateQuestion()
-        }, 3000)
+    progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
+    selectedChoice.parentElement.classList.add(classToApply)
+    
+    setTimeout ( () => {
+        selectedChoice.parentElement.classList.remove(classToApply)
+        selectedChoice.innerHTML= `${selectedAnswer}`
+        generateQuestion()
+    }, 3000)
          
-    // })
 })
 increaseScore = (num) => {
     score += CORRECT_BONUS
     scoreDisplay.innerHTML = score;
 } 
-
 startGame()
-
-
-
-
-
-//first code
-//Build to show the question and the answer
-
-// // variables
-// const mediumQuestion = document.querySelector(".medium-question")
-// const choicesContainer = document.querySelector(".choices-container")
-// const submitBtn = document.getElementById('submit-btn')
-
-// //functions
-// function buildQuestion() {
-//     // variable to store the HTML outout
-//     const output = [];
-
-//     ruQuestions.forEach((currentQuestion, questionNumber) => {
-//          //stores the list of possible answers
-//          const answers = [];
-
-//          //and for each available answer
-//          for(letter in currentQuestion.answers){
-
-//             //add button
-//             answers.push(
-//                 ''
-//             )
-//          }
-//     })
-// }
-
-// function showResults() {
-// }
-// buildQuestion();
-//button event listeners
-// submitBtn.addEventListener('click', showResults);
-
-// different objects if we came get a loop to Worker
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// }

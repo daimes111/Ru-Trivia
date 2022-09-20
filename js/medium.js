@@ -37,82 +37,76 @@ const ruQuestions = [
         correctAnswer: "A"
     }, 
     {
-        question: "2Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet2",
-        choiceB: "Nina Flowers",
+        question: "What year did RuPaul's Drag Race begin?",
+        choiceA: "2009",
+        choiceB: "1999",
+        choiceC: "2014",
+        choiceD: "2019",
         correctAnswer: "A"
     }, 
     {
-        question: "3Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet3",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
+        question: "This iconic mascot has gotten to walk the runway on season 7.",
+        choiceA: "Mickey Mouse",
+        choiceB: "Hello Kitty",
+        choiceC: "Pink Panther",
+        choiceD: "Brown M&M",
+        correctAnswer: "B"
+    }, 
+    {
+        question: "Where did the phrase 'She already done had herses' come from?",
+        choiceA: "RuPaul made it up",
+        choiceB: "One of the queens said it when she won",
+        choiceC: "Ru overhear it in a fast food shop",
+        choiceD: "Michelle Visage once said it to Ru after they said 'SILENCE'",
+        correctAnswer: "C"
+    }, 
+    {
+        question: "RuPaul's Drag Race is now shown on VH1, but what was the name of the first TV network to air it?",
+        choiceA: "Logo TV",
+        choiceB: "MTV",
+        choiceC: "E4",
+        choiceD: "ABC",
         correctAnswer: "A"
     }, 
     {
-        question: "4Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet4",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
+        question: "RuPaul always claims to be looking for what 4 qualities in contestants (in Order)?",
+        choiceA: "Confidence, Uniqueness, Trust, Strength",
+        choiceB: "Charisma, Uniqueness, Nerve, and Talent",
+        choiceC: "Charisma, Talent, Uniqueness, and Nerve",
+        choiceD: "Toughness, Intelligence, Creativity, and Talent",
+        correctAnswer: "B"
     }, 
     {
-        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet5",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
-    }, 
-    {
-        question: "6Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet6",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
-    }, 
-    {
-        question: "7Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet7",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
-    }, 
-    {
-        question: "8Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet8",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
+        question: "What has typically been the cash prize on the US seasons?",
+        choiceD: "$100,000",
+        choiceB: "$50,000",
+        choiceC: "150,000",
+        choiceA: "There is no cash prize. They get to sign a label",
+        correctAnswer: "D"
     },
     {
-        question: "9Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Bene9t",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
+        question: "What queen was the first eliminated in their season and what made them famous from it?",
+        choiceA: "Shuga Cain, Singing `I want candy` on exit",
+        choiceB: "Vanessa Vanjie Mateo, `Miss Vanjie, Miss Vanjie, Miss Vanjie`",
+        choiceC: "Shangela, yelling `Hallelu, I'll be back!`",
+        choiceD: "Joey Jay, `I'm gay ass b*tch, I'm Joey Jay!`",
+        correctAnswer: "B"
     },
     {
-        question: "10Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet10",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
+        question: "Who was the winner of the All-Stars All Winners Season?",
+        choiceA: "Trinity The Tuck Taylor",
+        choiceC: "Jinx Monsoon",
+        choiceB: "Bianca Del Rio",
+        choiceD: "Monet Exchange",
+        correctAnswer: "C"
     }, 
     {
-        question: "11Who was the winner of the first season of Ru Paul's Drag Race?",
-        choiceA: "BeBe Zahara Benet11",
-        choiceB: "Nina Flowers",
-        choiceC: "Shangela",
-        choiceD: "Raja",
-        correctAnswer: "A"
+        question: "Which queen said `Do I have something on my face?` while having a stare down with RuPaul?",
+        choiceA: "Tyra Sanchez",
+        choiceB: "The Vixen",
+        choiceC: "Max",
+        choiceD: "Pearl",
+        correctAnswer: "D"
     }
 
 ]
@@ -139,12 +133,10 @@ generateQuestion = (evt) => {
 
     // update progress bar
     progressText.innerHTML= `Question ${questionCounter} of ${MAX_QUESTIONS}`
-    // progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
 
     const questionIndex =  Math.floor(Math.random() * availableQuestions.length) 
     currentQuestion = availableQuestions[questionIndex]
     question.innerHTML= currentQuestion.question
-
    
     choices.forEach (choice => {
         const value = choice.dataset['value']
@@ -155,21 +147,6 @@ generateQuestion = (evt) => {
     availableQuestions.splice(questionIndex, 1)
 
     acceptingAnswers = true
-    
-    // attempt to turn choices into an array
-    // const choices = Object.keys(ruQuestions[0].choices)
-    // console.log(ruQuestions[0].choices)
-
-    // Attempt to create lables for choices
-    // ruQuestions[0].answers.forEach(element => {
-        
-            
-            // const choicesA = document.querySelector('A')
-            // choices.classList.add('choices')
-            // choicesContainer.appendChild(choices)
-            // choicesA.innerHTML= ruQuestions[0].choices.A
-    
-    // }
 }
 
 
@@ -197,9 +174,6 @@ choices.forEach(choice => {
         progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
         selectedChoice.parentElement.classList.add(classToApply)
 
-        // incorrectAnswer++
-       
-
         setTimeout ( () => {
             selectedChoice.parentElement.classList.remove(classToApply)
             
@@ -212,125 +186,4 @@ increaseScore = (num) => {
     score += CORRECT_BONUS
     scoreDisplay.innerHTML = score;
 } 
-
 startGame()
-
-
-
-
-
-//first code
-//Build to show the question and the answer
-
-// // variables
-// const mediumQuestion = document.querySelector(".medium-question")
-// const choicesContainer = document.querySelector(".choices-container")
-// const submitBtn = document.getElementById('submit-btn')
-
-// //functions
-// function buildQuestion() {
-//     // variable to store the HTML outout
-//     const output = [];
-
-//     ruQuestions.forEach((currentQuestion, questionNumber) => {
-//          //stores the list of possible answers
-//          const answers = [];
-
-//          //and for each available answer
-//          for(letter in currentQuestion.answers){
-
-//             //add button
-//             answers.push(
-//                 ''
-//             )
-//          }
-//     })
-// }
-
-// function showResults() {
-// }
-// buildQuestion();
-//button event listeners
-// submitBtn.addEventListener('click', showResults);
-
-// different objects if we came get a loop to Worker
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// },
-// {
-//     question: "Who was the winner of the first season of Ru Paul's Drag Race?",
-//     choices: {
-//         A: "BeBe Zahara Benet",
-//         B: "Nina Flowers",
-//         C: "Shangela",
-//         D: "Raja"
-//     },
-//     correctAnswer: "A"
-// }

@@ -7,6 +7,6 @@ startBtn.addEventListener('click', (evt) => {
     
     introModal.style.display= 'none'
     difficultModal.style.display= 'block'
-    difficultModal.style.width= '25%'
-    difficultModal.style.height= '50%'
+    difficultModal.style.width= '30%'
+    difficultModal.style.height= '60%'
 })

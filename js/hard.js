@@ -27,74 +27,104 @@ const MAX_QUESTIONS = 9
 
 const ruQuestions = [
     {
-        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        question: "Who is the youngest winner in the RuPaul franchise?",
         choices : [
-            "BeBe Zahara Benet6",
-            "Nina Flowers",
-            "Shangela",
-            "Raja"
+            "Aquaria",
+            "Violet Chachki",
+            "Tyra Sanchez",
+            "Krystal Versace"
         ],
-        correctAnswer: "BeBe Zahara Benet6"
+        correctAnswer: "Krystal Versace"
     }, 
     {
-        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        question: "In RuPaul’s Drag Race Season 9, which queen had to bow out due to an injury sustained in the cheerleading challenge?",
         choices : [
-            "BeBe Zahara Benet6",
-            "Nina Flowers",
-            "Shangela",
-            "Raja"
+            "Kimora Blac",
+            "Eureka O’Hara",
+            "Farah Moan",
+            "Trinity Taylor"
         ],
-        correctAnswer: "BeBe Zahara Benet6"
+        correctAnswer: "Eureka O’Hara"
     },
     {
-        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        question: "Who won the title of Miss Congeniality in RuPaul's Drag Race Season 12?",
         choices : [
-            "BeBe Zahara Benet6",
-            "Nina Flowers",
-            "Shangela",
-            "Raja"
+            "Jaida Essence Hall",
+            "Heidi N Closet",
+            "Jan",
+            "Brita"
         ],
-        correctAnswer: "BeBe Zahara Benet6"
+        correctAnswer: "Heidi N Closet"
     },
     {
-        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        question: "Who are the judges on Drag Race Espana?",
         choices : [
-            "BeBe Zahara Benet6",
-            "Nina Flowers",
-            "Shangela",
-            "Raja"
+            "Ru Paul, Michelle Visage, Carson Kressley, Ross Matthews",
+            "Carmen Farala, Alexis Mateo, Lady Morgana",
+            "Supremme de Luxe, Ana Locking, Javier Ambrossi, Javier Calvo",
+            "Ru Paul, Marle Ginsberg, Santano Rice"
         ],
-        correctAnswer: "BeBe Zahara Benet6"
+        correctAnswer: "Supremme de Luxe, Ana Locking, Javier Ambrossi, Javier Calvo"
     },
     {
-        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        question: "Finish this phrase, `I'd like to _________ please`?",
         choices : [
-            "BeBe Zahara Benet6",
-            "Nina Flowers",
-            "Shangela",
-            "Raja"
+            "challenge the winner",
+            "use my safety",
+            "lipsync for the win",
+            "keep it on"
         ],
-        correctAnswer: "BeBe Zahara Benet6"
+        correctAnswer: "keep it on"
     },
     {
-        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        question: "What BBC show was referenced in Drag Race UK Season 1 Snatch Game",
         choices : [
-            "BeBe Zahara Benet6",
-            "Nina Flowers",
-            "Shangela",
-            "Raja"
+            "Great British Bake Off",
+            "Doctor Who",
+            "The Crown",
+            "Sherlock"
         ],
-        correctAnswer: "BeBe Zahara Benet6"
+        correctAnswer: "Great British Bake Off"
     },
     {
-        question: "5Who was the winner of the first season of Ru Paul's Drag Race?",
+        question: "Who was the first ever contestant eliminated from RuPaul's Drag Race",
         choices : [
-            "BeBe Zahara Benet6",
-            "Nina Flowers",
-            "Shangela",
-            "Raja"
+            "Victoria `Porkchop` Parker",
+            "Crystal Labeija",
+            "Tammie Brown",
+            "Venus D-Lite"
         ],
-        correctAnswer: "BeBe Zahara Benet6"
+        correctAnswer: "Victoria `Porkchop` Parker"
+    },
+    {
+        question: "What colour was Phi Phi O'Hara's leotard that she wore as her final outfit on the runway",
+        choices : [
+            "Pink Leopard Print",
+            "Pink Tiger Print",
+            "Orange Leopard Print",
+            "Rainbow"
+        ],
+        correctAnswer: "Pink Leopard Print"
+    },
+    {
+        question: "Spell Katya's full name correctly",
+        choices : [
+            "Yekatterina Petrovna",
+            "Yekaterina Petrovna Zamolodchikova",
+            "Yekatterina Zamolodchikova",
+            "Yekatterina Petrovna Zamolodchikova"
+        ],
+        correctAnswer: "Yekatterina Petrovna Zamolodchikova"
+    },
+    {
+        question: "Who was the winner of Drag Race UK Season 1?",
+        choices : [
+            "The Vivienne",
+            "Divina De Campo",
+            "Crystal",
+            "Baga Chipz"
+        ],
+        correctAnswer: "The Vivienne"
     }
 ]
 
@@ -103,7 +133,6 @@ startGame = (evt) => {
     score = 0
     availableQuestions= [...ruQuestions]
     generateQuestion()
-    // startTimer(15)
     
 }
 
@@ -121,56 +150,21 @@ generateQuestion = (evt) => {
     startLineTimer(resetWidth)
     // update progress bar
     progressText.innerHTML= `Question <span>${questionCounter}</span> of <span>${MAX_QUESTIONS}</span>`
-    // progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
     
     const questionIndex =  Math.floor(Math.random() * availableQuestions.length) 
     currentQuestion = availableQuestions[questionIndex]
-   
-    // console.log(currentQuestion) 
-
     question.innerHTML= currentQuestion.question
-    // console.log(currentQuestion.choices)
+    
     for (let i =0; i < differentChoices.length; i++) {
         differentChoices[i].textContent= currentQuestion.choices[i]
-        // console.log(differentChoices[i])
     }
-    // console.log(differentChoices)
-    // for (let i = 0; i <currentQuestion.choices.length; i++){
-    // // currentQuestion.choices.forEach (choice => {
-    //     const div = document.createElement('div')
-    //     div.classList.add('choice-container')
-    //     choicesContainer.append(div)
-    //     const p = document.createElement('p')
-    //     p.classList.add('choice-text')
-    //     p.textContent = currentQuestion.choices[i]
-    //     div.append(p)
-    // }
     
     availableQuestions.splice(questionIndex, 1)
     
     acceptingAnswers = true
     
-    // attempt to turn choices into an array
-    // const choices = Object.keys(ruQuestions[0].choices)
-    // console.log(ruQuestions[0].choices)
-
-    // Attempt to create lables for choices
-    // ruQuestions[0].answers.forEach(element => {
-        
-            
-            // const choicesA = document.querySelector('A')
-            // choices.classList.add('choices')
-            // choicesContainer.appendChild(choices)
-            // choicesA.innerHTML= ruQuestions[0].choices.A
-    
-    // }
 }
-
-// let currentQuestion = sessionStorage.getItem('currentQuestion')
-// console.log(differentChoices)
-
 for (let i = 0; i < differentChoices.length; i++){
-// differentChoices.forEach(choice => {
     differentChoices[i].addEventListener('click', evt => {
         if (!acceptingAnswers) return
 
@@ -193,9 +187,6 @@ for (let i = 0; i < differentChoices.length; i++){
         progressBarFull.style.height = `${(questionCounter / MAX_QUESTIONS)* 100}%`
         selectedChoice.parentElement.classList.add(classToApply)
 
-        // incorrectAnswer++
-       
-       
         clearInterval(counter)
         clearInterval(counterLine)
        
@@ -218,7 +209,6 @@ startTimer = (time) => {
      function timer() {
         timerCount.innerHTML = time
         time--
-        // add double digit
         if(time < 9) {
             let withZero = timerCount.innerHTML
             timerCount.innerHTML = ` <span>0${withZero}</span>`
@@ -235,7 +225,7 @@ startTimer = (time) => {
                     return window.location.assign('/loseEnd.html')
                 }
                 generateQuestion()
-            }, 500)
+            }, 400)
 
         }
      }
@@ -251,43 +241,3 @@ startLineTimer = (time) => {
      }
 }
 startGame()
-
-
-
-
-
-//first code
-//Build to show the question and the answer
-
-// // variables
-// const mediumQuestion = document.querySelector(".medium-question")
-// const choicesContainer = document.querySelector(".choices-container")
-// const submitBtn = document.getElementById('submit-btn')
-
-// //functions
-// function buildQuestion() {
-//     // variable to store the HTML outout
-//     const output = [];
-
-//     ruQuestions.forEach((currentQuestion, questionNumber) => {
-//          //stores the list of possible answers
-//          const answers = [];
-
-//          //and for each available answer
-//          for(letter in currentQuestion.answers){
-
-//             //add button
-//             answers.push(
-//                 ''
-//             )
-//          }
-//     })
-// }
-
-// function showResults() {
-// }
-// buildQuestion();
-//button event listeners
-// submitBtn.addEventListener('click', showResults);
-
-// different objects if we came get a loop to Worker
