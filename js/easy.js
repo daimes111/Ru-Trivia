@@ -14,7 +14,7 @@ let questionCounter = 0
 let availableQuestions = []
 let incorrectAnswer = 0
 const CORRECT_BONUS = 5
-const MAX_QUESTIONS = 9 
+const MAX_QUESTIONS = 10 
 
 
 const ruQuestions = [

@@ -9,21 +9,21 @@
     @import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Permanent+Marker&display=swap');
     </style>
     <script defer src="js/end.js"></script>
-    <script defer src="js/medium.js"></script>
+    <!-- <script defer src="js/medium.js"></script> -->
     <title>Game-Over</title>
 </head>
 <body>
     <div class="container">
         <div id="end" class="flex-center flex-column">
           <form class="end-container">
-            <h2>Enter your name below to save your score!</h2>
+            <h2><span class="h2background">Enter your name below to save your score!</span></h2>
             <h1 id="finalScore"></h1>
-            <h2>Will you get the crown?</h2>
+            <h2><span class="h2background">Will you get the crown?</span></h2>
             <input type="text" name="username" id="username" placeholder="username" />
             <button type="submit" class="btn" id="saveScoreBtn" onclick="saveHighScore(event)" disabled>Save</button>
           </form>
-          <a class="btn endBtn" href="/difficult.html">Play Again</a>
-          <a class="btn endBtn" href="/highscore.html">Highscores</a>
+          <input type="submit" class="btn endBtn" onclick="location.href='../index.html'" value="Go Home"></input>
+          <input type="submit" class="btn endBtn" onclick="location.href='../highscore.html'" value="Highscores"></input>
         </div>
       </div>
 </body>

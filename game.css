@@ -31,6 +31,22 @@
     border:  rgb(176, 101, 99);
     width: 200px;
 }
+.timer {
+    font-size: 30px;
+    display: flex;
+    font-family: 'Ms Madi', cursive;
+    font-family: 'Permanent Marker', cursive;
+  }
+  #game h2 {
+    color: black;
+    opacity: .8;
+    font-family: 'Ms Madi', cursive;
+    font-family: 'Permanent Marker', cursive;
+    overflow-wrap: break-word;
+    font-size: 49px;
+    margin: 1px;
+    text-shadow: 1px 1px 1px #080707;
+  }
 
 @media screen and (max-width: 768px) {
     #game {
@@ -69,6 +85,10 @@
     width: 49%;
     height: 44%;
     margin: 1em auto;
+}
+#easy .choice-container {
+    width: 49%;
+    height: 53%;
 }
 
 .choice-text {
