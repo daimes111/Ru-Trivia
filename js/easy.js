@@ -100,10 +100,6 @@ generateQuestion = (evt) => {
 
         return window.location.assign('/end.html')
     }
-
-    // Reset choice container
-
-
     // update progress bar
     progressText.innerHTML= `Question ${questionCounter} of ${MAX_QUESTIONS}`
 
