@@ -32,6 +32,7 @@ Game continuation from easy to medium to hard
 Runway for the progress bar maybe using animation
 Add video questions or links for 
 A way for users to add their questions
+More questions
 ----Credits----
 
  
